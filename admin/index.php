@@ -36,7 +36,10 @@ if (isset($_POST["submitLogin"])) {
     <div id="card">
         <div id="card-content">
             <div id="card-title">
-                <h2>LOGIN</h2>
+                <h2 style="margin: 25px 0 0 0;">
+                    Tambah Berita
+                </h2>
+                <hr>
                 <div class="underline-title"></div>
             </div>
             <form method="post" class="form">

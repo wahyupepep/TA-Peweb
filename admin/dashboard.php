@@ -11,18 +11,21 @@
     <title>Document</title>
 </head>
 
-<body style="background: -webkit-linear-gradient(bottom, #2dbd6e, #a6f77b) fixed;
-    background-repeat: no-repeat;
-    height:100%;">
+<body>
     <!-- Navbar -->
     <?php include('header.php') ?>
     <!-- End Navbar -->
 
     <div class="container">
-        <h1><br>
+        <nav aria-label="breadcrumb" style="margin: 0px 0 0 0 ;">
+            <ol class="breadcrumb bg-white">
+                <li class="breadcrumb-item active" aria-current="page">Home</li>
+            </ol>
+        </nav>
+        <h1>
             Selamat Datang di Admin Panel <b>Kampung</b>Sholawat
         </h1>
-        <div class="Menu text-center" style="padding: 50px 0 0 0;">
+        <div class="Menu text-center" style="padding: 10px 0 0 0;">
             <div class="row">
                 <div class="col">
                     <a href="add_berita.php" style="color: black;">
@@ -35,14 +38,21 @@
                     <a href="list_berita.php" style="color: black;">
                         <i class="fas fa-trash-alt fa-5x"></i>
                         <br>
-                        <label for=""> List Berita</label>
+                        <label for="">List Berita</label>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="zawiyah.php" style="color: black;">
+                        <i class="far fa-calendar-alt fa-5x"></i>
+                        <br>
+                        <label for="">Kelola Zawiyah</label>
                     </a>
                 </div>
                 <div class="col">
                     <a href="#" style="color: black;">
                         <i class="fas fa-folder-plus fa-5x"></i>
                         <br>
-                        <label for=""> Upload Bacaan</label>
+                        <label for="">Upload Bacaan</label>
                     </a>
                 </div>
                 <div class="col">

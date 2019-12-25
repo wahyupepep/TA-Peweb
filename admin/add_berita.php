@@ -25,14 +25,22 @@ if (isset($_POST["submitBerita"])) {
     <title>Tambah Berita</title>
 </head>
 
-<body style="background: -webkit-linear-gradient(bottom, #2dbd6e, #a6f77b) fixed;
-    background-repeat: no-repeat;
-    height:100%;">
+<body>
     <!-- Navbar -->
     <?php include('header2.php') ?>
     <!-- End Navbar -->
     <div class="container">
-        <table style="margin: 50px 0 0 0;">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-white">
+                <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Tambah</li>
+            </ol>
+        </nav>
+        <h2 style="margin: 25px 0 0 0;">
+            Tambah Berita
+        </h2>
+        <hr>
+        <table style=" margin: 25px 0 0 0;">
             <form action="" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="tanggal">
                 <tr>

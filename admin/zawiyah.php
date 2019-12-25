@@ -23,7 +23,7 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-white">
                 <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">List</li>
+                <li class="breadcrumb-item active" aria-current="page">Zawiyah</li>
             </ol>
         </nav>
         <h2 style="margin: 25px 0 0 0;">
