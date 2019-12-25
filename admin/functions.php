@@ -22,7 +22,7 @@ function tambah($data)
     $judulBerita = htmlspecialchars($data["judulBerita"]);
     $kategoriBerita = htmlspecialchars(($data["kategoriBerita"]));
     $isiBerita = htmlspecialchars($data["isiBerita"]);
-    $tanggal = date("Y-m-d H:i:s");
+    $time = date("Y-m-d H:i:s");
     $img = upload();
     if (!$img) {
         return false;
@@ -30,7 +30,7 @@ function tambah($data)
     // var_dump($isiBerita);
 
     //query input
-    $query = "INSERT INTO tb_berita VALUES ('','$img','$judulBerita','$kategoriBerita','$isiBerita','$tanggal')";
+    $query = "INSERT INTO tb_berita VALUES ('','$img','$judulBerita','$kategoriBerita','$isiBerita','$time')";
 
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
@@ -56,6 +56,7 @@ function upload()
     $namaFileBaru = uniqid();
     $namaFileBaru .= '.';
     $namaFileBaru .= $ekstensiGambar;
+
     if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
         echo "<script>
                 alert(' Tolong upload gambar!');
@@ -63,13 +64,13 @@ function upload()
         return false;
     }
     //cek ukuran gambar
-    if ($ukuranFile > 1000000) {
+    if ($ukuranFile > 2000000) {
         echo "<script>
                     alert(' Ukuran terlalu besar!');
                     </script>";
         return false;
     }
-    if (isset($_FILES["image"])) {
+    if (isset($_FILES["img"])) {
         move_uploaded_file($tmpName, "image/$namaFileBaru");
         return $namaFileBaru;
     }

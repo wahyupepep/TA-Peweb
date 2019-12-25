@@ -28,8 +28,8 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
                     <th scope="col">Gambar</th>
                     <th scope="col">Judul Berita</th>
                     <th scope="col">Kategori</th>
-                    <th scope="col">Edit</th>
                     <th scope="col">Tanggal</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,7 +48,9 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
                         <td>
                             <?= $news["kategori"]; ?>
                         </td>
-
+                        <td>
+                            <?= $news["tanggal"]; ?>
+                        </td>
                         <td>
                             <a href="ubah.php?id=<?= $news["id"]; ?>">
                                 <button type="submit" name="ubah" class="btn btn-light">Ubah</button>
@@ -57,9 +59,7 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
                                 <button type="submit" name="hapus" class="btn btn-danger">Hapus</button>
                             </a>
                         </td>
-                        <td>
-                            <?= $news["tanggal"]; ?>
-                        </td>
+
                     </tr>
                     <?php $i++; ?>
                 <?php endforeach; ?>
