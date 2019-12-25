@@ -2,10 +2,10 @@
 require 'functions.php';
 if (isset($_POST["submitBerita"])) {
 
-    if (tambah($_POST) > 0) {
+    if (create($_POST) > 0) {
         echo "<script>
                 alert ('Berita Berhasil Ditambah!');
-                document.location.href = 'dashboard.php';
+                document.location.href = 'list_berita.php';
                 </script>";
     } else {
         echo "<script>

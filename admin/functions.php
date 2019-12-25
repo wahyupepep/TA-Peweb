@@ -16,7 +16,7 @@ function query($query)
     }
     return $rows;
 }
-function tambah($data)
+function create($data)
 {
     global $conn;
     $judulBerita = htmlspecialchars($data["judulBerita"]);
@@ -74,4 +74,11 @@ function upload()
         move_uploaded_file($tmpName, "image/$namaFileBaru");
         return $namaFileBaru;
     }
+}
+function delete($id)
+{
+    global $conn;
+    $delete = "DELETE FROM tb_berita WHERE id = $id";
+    mysqli_query($conn, $delete);
+    return mysqli_affected_rows($conn);
 }

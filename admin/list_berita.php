@@ -13,15 +13,18 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="..\assets\css\bootstrap.min.css">
+
     <title>list Berita</title>
 </head>
 
-<body style="background: -webkit-linear-gradient(bottom, #2dbd6e, #a6f77b) fixed;
-    background-repeat: no-repeat;
-    height:100%;">
+<body>
     <?php include "header2.php"; ?>
-    <div class="container">
-        <table class="table table-bordered table-striped" style="margin: 10px 0 0 0;">
+    <div class="container" style=" margin-top:20px">
+        <h2>
+            Daftar Berita
+        </h2>
+        <hr>
+        <table class="table table-striped table-hover table-sm table-bordered" style="margin: 10px 0 0 0;">
             <thead>
                 <tr>
                     <th scope="col">No</th>
@@ -55,8 +58,8 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
                             <a href="ubah.php?id=<?= $news["id"]; ?>">
                                 <button type="submit" name="ubah" class="btn btn-light">Ubah</button>
                             </a>
-                            <a href="hapus.php?id=<?= $news["id"]; ?>">
-                                <button type="submit" name="hapus" class="btn btn-danger">Hapus</button>
+                            <a href="delete.php?id=<?= $news["id"]; ?>">
+                                <button type="submit" name="hapus" class="btn btn-danger" Onclick="return ConfirmDelete();"> Delete</button>
                             </a>
                         </td>
 
@@ -66,6 +69,15 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
             </tbody>
         </table>
     </div>
+    <script>
+        function ConfirmDelete() {
+            var x = confirm("Are you sure you want to delete?");
+            if (x)
+                return true;
+            else
+                return false;
+        }
+    </script>
 </body>
 
 </html>
