@@ -49,8 +49,15 @@
                     </a>
                 </div>
                 <div class="col">
-                    <a href="#" style="color: black;">
+                    <a href="surah.php" style="color: black;">
                         <i class="fas fa-folder-plus fa-5x"></i>
+                        <br>
+                        <label for="">Surah Al-Qur'an</label>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="upload_bacaan.php" style="color: black;">
+                        <i class="fas fa-paperclip fa-5x"></i>
                         <br>
                         <label for="">Upload Bacaan</label>
                     </a>
