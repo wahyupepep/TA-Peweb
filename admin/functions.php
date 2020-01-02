@@ -139,8 +139,23 @@ function uploadSurah()
     // } else {
     //     echo "Upload Gagal!";
     // }
-    if (isset($_FILES["bacaan"])) {
-        move_uploaded_file($tmpName, "upload/bacaan/$namaFile");
-        return $namaFile;
-    }
+
+    move_uploaded_file($tmpName, 'upload/bacaan/' . $namaFile);
+    return $namaFile;
+
+    // if (isset($_FILES["bacaan"])) {
+    // }
+}
+
+function tambahZawiyah($data)
+{
+    global $conn;
+    $tempatZawiyah = htmlspecialchars($data["tempatZawiyah"]);
+    $waktuZawiyah = htmlspecialchars(($data["waktuZawiyah"]));
+    $tglZawiyah = htmlspecialchars($data["tanggalZawiyah"]);
+
+    $query = "INSERT INTO tb_zawiyah VALUES ('','$tempatZawiyah','$waktuZawiyah','$tglZawiyah')";
+
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
 }

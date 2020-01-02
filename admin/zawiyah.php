@@ -1,6 +1,6 @@
 <?php
 require 'functions.php';
-$berita = mysqli_query($conn, "SELECT * FROM tb_berita");
+$zawiyah = mysqli_query($conn, "SELECT * FROM tb_zawiyah");
 // while ($fetch = mysqli_fetch_array($berita)) {
 //     echo selengkapnya($fetch["isi_berita"]);
 // }
@@ -29,43 +29,45 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
         <h2 style="margin: 25px 0 0 0;">
             Daftar Zawiyah
         </h2>
+        <a href="add_zawiyah.php">
+            <h5 style="margin: 5px 0 0 0;">
+                + Tambah Zawiyah
+            </h5>
+        </a>
         <hr>
         <table class="table table-striped table-hover table-sm table-bordered" style="margin: 10px 0 0 0;">
             <thead>
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Gambar</th>
-                    <th scope="col">Judul Berita</th>
-                    <th scope="col">Kategori</th>
+                    <th scope="col">Tempat</th>
+                    <th scope="col">Waktu</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <?php $i = 1; ?>
-                <?php foreach ($berita as $news) : ?>
+                <?php foreach ($zawiyah as $daftarZawiyah) : ?>
                     <tr>
                         <td>
                             <?= $i; ?>
                         </td>
                         <td>
-                            <img src="image/<?= $news["img"]; ?>" width="50">
+                            <?= $daftarZawiyah["tempat"]; ?>
                         </td>
                         <td>
-                            <?= $news["judul"]; ?>
+                            <?= $daftarZawiyah["waktu"]; ?>
                         </td>
                         <td>
-                            <?= $news["kategori"]; ?>
-                        </td>
-                        <td>
-                            <?= $news["tanggal"]; ?>
+                            <?= $daftarZawiyah["tanggal"]; ?>
                         </td>
 
+
                         <td>
-                            <a href="ubah.php?id=<?= $news["id"]; ?>">
+                            <a href="ubah.php?id=<?= $daftarZawiyah["id"]; ?>">
                                 <button type="submit" name="ubah" class="btn btn-sm btn-primary">Ubah</button>
                             </a>
-                            <a href="delete.php?id=<?= $news["id"]; ?>">
+                            <a href="delete.php?id=<?= $daftarZawiyah["id"]; ?>">
                                 <button type="submit" name="hapus" class="btn btn-sm btn-danger" Onclick="return ConfirmDelete();"> Delete</button>
                             </a>
                         </td>
