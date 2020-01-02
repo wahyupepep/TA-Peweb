@@ -29,7 +29,7 @@
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Zawiyah</a>
+                    <a class="nav-link" href="zawiyah.php">Zawiyah</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Download</a>
