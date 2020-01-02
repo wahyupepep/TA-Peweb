@@ -11,7 +11,7 @@ $surah = mysqli_query($conn, "SELECT * FROM tb_surah");
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="..\assets\css\bootstrap.min.css">
 
-    <title>List Berita</title>
+    <title>Daftar Surah Al-Qur'an</title>
 </head>
 
 <body>

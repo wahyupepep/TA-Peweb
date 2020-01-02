@@ -14,7 +14,7 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="..\assets\css\bootstrap.min.css">
 
-    <title>List Berita</title>
+    <title>Daftar Zawiyah</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
             </ol>
         </nav>
         <h2 style="margin: 25px 0 0 0;">
-            Tambah Berita
+            Daftar Zawiyah
         </h2>
         <hr>
         <table class="table table-striped table-hover table-sm table-bordered" style="margin: 10px 0 0 0;">

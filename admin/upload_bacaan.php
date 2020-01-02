@@ -1,11 +1,11 @@
 <?php
 require 'functions.php';
-if (isset($_POST["submitBerita"])) {
+if (isset($_POST["submitBacaan"])) {
 
-    if (create($_POST) > 0) {
+    if (uploadBacaan($_POST) > 0) {
         echo "<script>
-                alert ('Berita Berhasil Ditambah!');
-                document.location.href = 'list_berita.php';
+                alert ('Surah Berhasil Ditambah!');
+                document.location.href = 'surah.php';
                 </script>";
     } else {
         echo "<script>
@@ -22,7 +22,7 @@ if (isset($_POST["submitBerita"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tambah Berita</title>
+    <title>Upload Bacaan</title>
 </head>
 
 <body>
@@ -33,11 +33,11 @@ if (isset($_POST["submitBerita"])) {
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-white">
                 <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Tambah</li>
+                <li class="breadcrumb-item active" aria-current="page">Upload Bacaan</li>
             </ol>
         </nav>
         <h2 style="margin: 25px 0 0 0;">
-            Tambah Berita
+            Upload Bacaan
         </h2>
         <hr>
         <table style=" margin: 25px 0 0 0;">
@@ -45,60 +45,31 @@ if (isset($_POST["submitBerita"])) {
                 <input type="hidden" name="tanggal">
                 <tr>
                     <td>
-                        <label for="gambar">Gambar</label>
+                        <label for="Judul Bacaan">Judul Bacaan</label>
                     </td>
                     <td>
                         :
                     </td>
                     <td>
-                        <input type="file" name="img" id="img">
+                        <input type="text" name="judulBacaan" id="judulBacaan" size="100px">
                     </td>
-
                 </tr>
                 <tr>
                     <td>
-                        <label for="Judul Berita">Judul Berita</label>
+                        <label for="bacaan">Upload</label>
                     </td>
                     <td>
                         :
                     </td>
                     <td>
-                        <input type="text" name="judulBerita" id="judulBerita" size="100px">
+                        <input type="file" name="bacaan" id="bacaan">
                     </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="kategoriBerita">Kategori Berita</label>
-                    </td>
-                    <td>
-                        :
-                    </td>
-                    <td>
-                        <select class="custom-select" id="inputGroupSelect01" name="kategoriBerita">
-                            <option selected>Choose...</option>
-                            <option value="Nasional">Nasional</option>
-                            <option value="Daerah">Daerah</option>
-                            <option value="internasional">Internasional</option>
-                        </select>
 
-                    </td>
                 </tr>
-                <tr>
-                    <td>
-                        <label for="exampleFormControlTextarea1">Berita :</label>
 
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        <div class="form-group">
-                            <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" name="isiBerita"></textarea>
-                        </div>
-                    </td>
-                </tr>
                 <tr>
                     <td>
-                        <button type="submit" id="submitBerita" class="btn btn-success" name="submitBerita">Submit</button>
+                        <button type="submit" id="submitBacaan" class="btn btn-success" name="submitBacaan">Submit</button>
                     </td>
                 </tr>
             </form>

@@ -82,3 +82,65 @@ function delete($id)
     mysqli_query($conn, $delete);
     return mysqli_affected_rows($conn);
 }
+
+function uploadBacaan($data)
+{
+    global $conn;
+    $judulBacaan = htmlspecialchars($data["judulBacaan"]);
+    $surah = uploadSurah();
+    if (!$surah) {
+        return false;
+    }
+    // var_dump($isiBerita);
+
+    //query input
+    $query = "INSERT INTO tb_surah VALUES ('','$judulBacaan','$surah')";
+
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
+function uploadSurah()
+{
+    $namaFile = $_FILES['bacaan']['name'];
+    $ukuranFile = $_FILES['bacaan']['size'];
+    $error = $_FILES['bacaan']['error'];
+    $tmpName = $_FILES['bacaan']['tmp_name'];
+    $dirUpload = "upload/bacaan/";
+
+    if ($error === 4) {
+        echo " <script>
+                alert('Tidak ada Gambar!');
+                </script>";
+        return false;
+    }
+
+    // cek gambar yang diupload adalah gambar
+    $ekstensiGambarValid = ['mp3', 'wav'];
+    $ekstensiGambar = explode('.', $namaFile);
+    $ekstensiGambar = strtolower(end($ekstensiGambar));
+
+    if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
+        echo "<script>
+                alert(' Tolong upload gambar!');
+                </script>";
+        return false;
+    }
+    //cek ukuran gambar 5<B
+    if ($ukuranFile > 5000000) {
+        echo "<script>
+                    alert(' Ukuran terlalu besar!');
+                    </script>";
+        return false;
+    }
+    // $terUpload = move_uploaded_file($tmpName, $dirUpload . $namaFile);
+    // if ($terUpload) {
+    //     echo "Upload berhasil!<br/>";
+    // } else {
+    //     echo "Upload Gagal!";
+    // }
+    if (isset($_FILES["bacaan"])) {
+        move_uploaded_file($tmpName, "upload/bacaan/$namaFile");
+        return $namaFile;
+    }
+}
