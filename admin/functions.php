@@ -159,3 +159,6 @@ function tambahZawiyah($data)
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
 }
+function post($id)
+{
+}

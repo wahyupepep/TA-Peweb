@@ -80,30 +80,20 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
                 <div class="card-group">
                     <?php $i = 1; ?>
                     <?php foreach ($berita as $news) : ?>
-                        <div class="card">
-                            <img src="admin/image/<?= $news["img"]; ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"><?= $news["judul"]; ?></h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            </div>
+                        <div class="col-md-3">
+                            <a href="#">
+                                <center>
+                                    <img class="img-fluid rounded mb-3 mb-md-0" src="admin/image/<?= $news["img"]; ?>" alt="" style="width: 100%; height:100%;">
+                                </center>
+                            </a>
                         </div>
-                        <div class="card">
-                            <img src="admin/image/<?= $news["img"]; ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"><?= $news["judul"]; ?></h5>
-                                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            </div>
+                        <div class="col-md-9">
+                            <h5><?= $news["judul"]; ?></h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+                            <a class="btn btn-sm btn-primary" href="post.php?id=<?= $news["id"]; ?>">Baca Selengkapnya...</a>
+                            <hr>
                         </div>
-                        <div class="card">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            </div>
-                        </div>
+
                         <?php $i++; ?>
                     <?php endforeach; ?>
                 </div>
@@ -115,8 +105,6 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
                     </ul>
                 </div>
             </div>
