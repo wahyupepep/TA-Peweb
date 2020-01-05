@@ -87,6 +87,9 @@ $zawiyah = mysqli_query($conn, "SELECT * FROM tb_zawiyah");
                 return false;
         }
     </script>
+    <!-- Footer -->
+    <?php include('footer.php') ?>
+    <!-- End Footer -->
 </body>
 
 </html>

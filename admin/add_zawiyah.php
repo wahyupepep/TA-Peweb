@@ -90,6 +90,9 @@ if (isset($_POST["submitZawiyah"])) {
             </form>
         </table>
     </div>
+    <!-- Footer -->
+    <?php include('footer.php') ?>
+    <!-- End Footer -->
 </body>
 
 </html>

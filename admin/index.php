@@ -56,6 +56,7 @@ if (isset($_POST["submitLogin"])) {
             </form>
         </div>
     </div>
+
 </body>
 
 </html>

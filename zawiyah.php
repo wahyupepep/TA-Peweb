@@ -69,6 +69,9 @@ $zawiyah = mysqli_query($conn, "SELECT * FROM tb_zawiyah");
             </tbody>
         </table>
     </div>
+    <!-- Footer -->
+    <?php include('footer.php') ?>
+    <!-- End Footer -->
 </body>
 
 </html>

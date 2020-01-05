@@ -1,7 +1,10 @@
 <?php
 require 'admin/functions.php';
 $id = $_GET["id"];
-$berita = "SELECT * FROM tb_berita WHERE id = $id";
+// $berita = "SELECT * FROM tb_berita WHERE id = $id";
+$berita = mysqli_query($conn, "SELECT * FROM tb_berita WHERE id = $id");
+$data   = mysqli_fetch_assoc($berita);
+// print_r($data);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,19 +31,15 @@ $berita = "SELECT * FROM tb_berita WHERE id = $id";
                 <div class="card mb-4">
 
                     <div class="card-header">
-                        Posted on January 1, 2017 by
-                        <a href="#">Start Bootstrap</a>
+                        Posted on <?= $data['tanggal']; ?>
                     </div>
-                    <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap" />
+                    <img class="card-img-top" src="admin/image/<?= $data["img"]; ?>" alt="Card image cap" />
                     <div class="card-body">
                         <h2 class="card-title">
-                            <?= $berita["judul"]; ?>
+                            <?= $data['judul']; ?>
                         </h2>
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a
-                            laboriosam. Dicta expedita corporis animi vero voluptate
-                            voluptatibus possimus, veniam magni quis!
+                        <p class="card-text text-justify">
+                            <?= $data['isi_berita'] ?>
                         </p>
                         <!-- <a href="#" class="btn btn-primary">Read More &rarr;</a> -->
                     </div>
@@ -67,6 +66,9 @@ $berita = "SELECT * FROM tb_berita WHERE id = $id";
             </div>
         </div>
     </div>
+    <!-- Footer -->
+    <?php include('footer.php') ?>
+    <!-- End Footer -->
 </body>
 
 </html>
