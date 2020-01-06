@@ -95,6 +95,9 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
                         </div>
 
                         <?php $i++; ?>
+                        <?php if ($i == 5) {
+                            break;
+                        } ?>
                     <?php endforeach; ?>
                 </div>
             </div>

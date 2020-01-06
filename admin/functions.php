@@ -1,4 +1,6 @@
 <?php
+error_reporting(0);
+
 $conn = mysqli_connect("localhost", "root", "", "db_kampungsholawat");
 //cek koneksi db
 // if (!$conn) {
@@ -35,6 +37,34 @@ function create($data)
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
 }
+
+function edit($data)
+{
+    global $conn;
+    $id = $data["id"];
+    $judulBerita = htmlspecialchars($data["judulBerita"]);
+    $kategoriBerita = htmlspecialchars(($data["kategoriBerita"]));
+    $isiBerita = htmlspecialchars($data["isiBerita"]);
+    $imgLama = htmlspecialchars($data["img"]);
+    // cek apakah gambar di ganti
+    if ($_FILES['img']['error'] === 4) {
+        $foto = $imgLama;
+    } else {
+        $foto = upload();
+    }
+    // query insert data
+    $query = "UPDATE tb_berita SET
+       judul = '$judulBerita',
+       img = '$foto',
+       kategori = '$kategoriBerita',
+       isi_berita = '$isiBerita'
+       WHERE id = $id
+       ";
+
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
 function upload()
 {
     $namaFile = $_FILES['img']['name'];

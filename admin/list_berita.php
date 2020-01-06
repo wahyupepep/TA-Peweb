@@ -29,6 +29,8 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
         <h2 style="margin: 25px 0 0 0;">
             List Berita
         </h2>
+        <br>
+        <h5><a href="add_berita.php">Tambah Berita</a></h5>
         <hr>
         <table class="table table-striped table-hover table-sm table-bordered" style="margin: 10px 0 0 0;">
             <thead>

@@ -1,16 +1,20 @@
 <?php
 require 'functions.php';
-if (isset($_POST["submitBerita"])) {
+//get id
+$id = $_GET["id"];
+$berita = query("SELECT * FROM tb_berita where id = $id")[0];
 
-    if (create($_POST) > 0) {
+if (isset($_POST["submitEdit"])) {
+    if (edit($_POST) > 0) {
         echo "<script>
-                alert ('Berita Berhasil Ditambah!');
+                alert ('Barang Berhasil Diubahh!');
                 document.location.href = 'list_berita.php';
                 </script>";
     } else {
         echo "<script>
-                alert ('Berita Gagal Ditambah!');
-                </script>";
+            alert ('Barang Gagal Diubah!');
+            document.location.href = 'ubah.php';
+            </script>";
     }
 }
 ?>
@@ -22,7 +26,7 @@ if (isset($_POST["submitBerita"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tambah Berita</title>
+    <title>Edit Berita</title>
 </head>
 
 <body>
@@ -33,16 +37,24 @@ if (isset($_POST["submitBerita"])) {
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-white">
                 <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Tambah</li>
+                <li class="breadcrumb-item active" aria-current="page">Edit</li>
             </ol>
         </nav>
         <h2 style="margin: 25px 0 0 0;">
-            Tambah Berita
+            Edit Berita
         </h2>
         <hr>
         <table style=" margin: 25px 0 0 0;">
             <form action="" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?= $berita["id"]; ?>">
                 <input type="hidden" name="tanggal">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <img src="image/<?= $berita["img"]; ?>" alt="" width="90">
+                    </td>
+                </tr>
                 <tr>
                     <td>
                         <label for="gambar">Gambar</label>
@@ -51,7 +63,7 @@ if (isset($_POST["submitBerita"])) {
                         :
                     </td>
                     <td>
-                        <input type="file" name="img" id="img">
+                        <input type="file" name="img" id="img" value="<?= $berita["img"]; ?>">
                     </td>
 
                 </tr>
@@ -63,7 +75,7 @@ if (isset($_POST["submitBerita"])) {
                         :
                     </td>
                     <td>
-                        <input type="text" name="judulBerita" id="judulBerita" size="100px" required>
+                        <input type="text" name="judulBerita" id="judulBerita" size="100px" value="<?= $berita["judul"]; ?>">
                     </td>
                 </tr>
                 <tr>
@@ -74,7 +86,7 @@ if (isset($_POST["submitBerita"])) {
                         :
                     </td>
                     <td>
-                        <select class="custom-select" id="inputGroupSelect01" name="kategoriBerita" required>
+                        <select class="custom-select" id="inputGroupSelect01" name="kategoriBerita">
                             <option selected>Choose...</option>
                             <option value="Nasional">Nasional</option>
                             <option value="Daerah">Daerah</option>
@@ -92,13 +104,13 @@ if (isset($_POST["submitBerita"])) {
                     </td>
                     <td>
                         <div class="form-group">
-                            <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" name="isiBerita" required></textarea>
+                            <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" name="isiBerita"><?= $berita["isi_berita"]; ?></textarea>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button type="submit" id="submitBerita" class="btn btn-success" name="submitBerita">Submit</button>
+                        <button type="submit" id="submitEdit" class="btn btn-success" name="submitEdit">Submit</button>
                     </td>
                 </tr>
             </form>
