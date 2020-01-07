@@ -62,20 +62,6 @@
                         <label for="">Upload Bacaan</label>
                     </a>
                 </div>
-                <div class="col">
-                    <a href="#" style="color: black;">
-                        <i class="fas fa-file-video fa-5x"></i>
-                        <br>
-                        <label for="">Upload Video</label>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="#" style="color: black;">
-                        <i class="fas fa-paperclip fa-5x"></i>
-                        <br>
-                        <label for="">Upload Video</label>
-                    </a>
-                </div>
             </div>
         </div>
     </div>

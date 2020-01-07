@@ -43,6 +43,12 @@ $data   = mysqli_fetch_assoc($berita);
                         </p>
                         <!-- <a href="#" class="btn btn-primary">Read More &rarr;</a> -->
                     </div>
+                    <?php if ($data['video'] == 1) : ?>
+                        <div class="video text-center">
+                            <iframe width="560" height="315" src="<?= $data['video'] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    <?php endif; ?>
+
 
                 </div>
             </div>
@@ -66,6 +72,7 @@ $data   = mysqli_fetch_assoc($berita);
             </div>
         </div>
     </div>
+
     <!-- Footer -->
     <?php include('footer.php') ?>
     <!-- End Footer -->

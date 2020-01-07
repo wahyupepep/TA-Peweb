@@ -35,7 +35,8 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
         <table class="table table-striped table-hover table-sm table-bordered" style="margin: 10px 0 0 0;">
             <thead>
                 <tr>
-                    <th scope="col">No</th>
+                    <th scope="col" style="font-size: large;">No.</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Gambar</th>
                     <th scope="col">Judul Berita</th>
                     <th scope="col">Kategori</th>
@@ -49,6 +50,9 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
                     <tr>
                         <td>
                             <?= $i; ?>
+                        </td>
+                        <td>
+                            <?= $news["id"]; ?>
                         </td>
                         <td>
                             <img src="image/<?= $news["img"]; ?>" width="50">

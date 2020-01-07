@@ -47,10 +47,10 @@ $surah = mysqli_query($conn, "SELECT * FROM tb_surah");
                         </td>
                         <td>
                             <a href="ubah.php?id=<?= $surat["id"]; ?>">
-                                <button type="submit" name="ubah" class="btn btn-sm btn-primary">Ubah</button>
+                                <button type="submitEdit" name="ubah" class="btn btn-sm btn-primary">Ubah</button>
                             </a>
-                            <a href="delete.php?id=<?= $surat["id"]; ?>">
-                                <button type="submit" name="hapus" class="btn btn-sm btn-danger" Onclick="return ConfirmDelete();"> Delete</button>
+                            <a href="deleteBacaan.php?id=<?= $surat["id"]; ?>">
+                                <button type="submitDel" name="hapus" class="btn btn-sm btn-danger" Onclick="return ConfirmDelete();"> Delete</button>
                             </a>
                         </td>
 

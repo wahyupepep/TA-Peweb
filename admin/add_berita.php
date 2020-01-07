@@ -22,7 +22,13 @@ if (isset($_POST["submitBerita"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.tiny.cloud/1/slnbjgoluq6lrwwub8hkjhpz5kl6p6xsjkh3xvq2z5ryjmz0/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <title>Tambah Berita</title>
+    <script>
+        tinymce.init({
+            selector: '#isiBerita'
+        });
+    </script>
 </head>
 
 <body>
@@ -92,8 +98,19 @@ if (isset($_POST["submitBerita"])) {
                     </td>
                     <td>
                         <div class="form-group">
-                            <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" name="isiBerita" required></textarea>
+                            <textarea id="isiBerita" name="isiBerita">Hello, World!</textarea>
                         </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Link Berita
+                    </td>
+                    <td>
+                        :
+                    </td>
+                    <td>
+                        <input type="text" name="linkVideo" id="linkVideo" size="100px">
                     </td>
                 </tr>
                 <tr>

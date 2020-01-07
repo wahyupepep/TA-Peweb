@@ -18,12 +18,14 @@ function query($query)
     }
     return $rows;
 }
+
 function create($data)
 {
     global $conn;
     $judulBerita = htmlspecialchars($data["judulBerita"]);
     $kategoriBerita = htmlspecialchars(($data["kategoriBerita"]));
-    $isiBerita = htmlspecialchars($data["isiBerita"]);
+    $isiBerita = ($data["isiBerita"]);
+    $video = htmlspecialchars($data["linkVideo"]);
     $time = date("Y-m-d H:i:s");
     $img = upload();
     if (!$img) {
@@ -32,7 +34,7 @@ function create($data)
     // var_dump($isiBerita);
 
     //query input
-    $query = "INSERT INTO tb_berita VALUES ('','$img','$judulBerita','$kategoriBerita','$isiBerita','$time')";
+    $query = "INSERT INTO tb_berita VALUES ('','$img','$judulBerita','$kategoriBerita','$isiBerita','$video','$time')";
 
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
@@ -44,7 +46,7 @@ function edit($data)
     $id = $data["id"];
     $judulBerita = htmlspecialchars($data["judulBerita"]);
     $kategoriBerita = htmlspecialchars(($data["kategoriBerita"]));
-    $isiBerita = htmlspecialchars($data["isiBerita"]);
+    $isiBerita = ($data["isiBerita"]);
     $imgLama = htmlspecialchars($data["img"]);
     // cek apakah gambar di ganti
     if ($_FILES['img']['error'] === 4) {
@@ -112,19 +114,27 @@ function delete($id)
     mysqli_query($conn, $delete);
     return mysqli_affected_rows($conn);
 }
+function deleteBacaan($id)
+{
+    global $conn;
+    $delete = "DELETE FROM tb_surah WHERE id = $id";
+    mysqli_query($conn, $delete);
+    return mysqli_affected_rows($conn);
+}
 
 function uploadBacaan($data)
 {
     global $conn;
     $judulBacaan = htmlspecialchars($data["judulBacaan"]);
-    $surah = uploadSurah();
-    if (!$surah) {
+
+    $uploadFile = uploadSurah();
+    if (!$uploadFile) {
         return false;
     }
     // var_dump($isiBerita);
 
     //query input
-    $query = "INSERT INTO tb_surah VALUES ('','$judulBacaan','$surah')";
+    $query = "INSERT INTO tb_surah VALUES ('','$judulBacaan','$uploadFile')";
 
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
@@ -132,11 +142,10 @@ function uploadBacaan($data)
 
 function uploadSurah()
 {
-    $namaFile = $_FILES['bacaan']['name'];
-    $ukuranFile = $_FILES['bacaan']['size'];
+    $namaBacaan = $_FILES['bacaan']['name'];
+    $ukuranBacaan = $_FILES['bacaan']['size'];
     $error = $_FILES['bacaan']['error'];
     $tmpName = $_FILES['bacaan']['tmp_name'];
-    $dirUpload = "upload/bacaan/";
 
     if ($error === 4) {
         echo " <script>
@@ -146,35 +155,30 @@ function uploadSurah()
     }
 
     // cek gambar yang diupload adalah gambar
-    $ekstensiGambarValid = ['mp3', 'wav'];
-    $ekstensiGambar = explode('.', $namaFile);
-    $ekstensiGambar = strtolower(end($ekstensiGambar));
+    $ekstensiBacaanValid = ['mp3', 'wav'];
+    $ekstensiBacaan = explode('.', $namaBacaan);
+    $ekstensiBacaan = strtolower(end($ekstensiBacaan));
+    $namaBacaanBaru = uniqid();
+    $namaBacaanBaru .= '.';
+    $namaBacaanBaru .= $ekstensiBacaan;
 
-    if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
+    if (!in_array($ekstensiBacaan, $ekstensiBacaanValid)) {
         echo "<script>
                 alert(' Tolong upload gambar!');
                 </script>";
         return false;
     }
-    //cek ukuran gambar 5<B
-    if ($ukuranFile > 5000000) {
+    //cek ukuran gambar
+    if ($ukuranBacaan > 100000000) {
         echo "<script>
                     alert(' Ukuran terlalu besar!');
                     </script>";
         return false;
     }
-    // $terUpload = move_uploaded_file($tmpName, $dirUpload . $namaFile);
-    // if ($terUpload) {
-    //     echo "Upload berhasil!<br/>";
-    // } else {
-    //     echo "Upload Gagal!";
-    // }
-
-    move_uploaded_file($tmpName, 'upload/bacaan/' . $namaFile);
-    return $namaFile;
-
-    // if (isset($_FILES["bacaan"])) {
-    // }
+    if (isset($_FILES["bacaan"])) {
+        move_uploaded_file($tmpName, "../admin/upload/$namaBacaanBaru");
+        return $namaBacaanBaru;
+    }
 }
 
 function tambahZawiyah($data)

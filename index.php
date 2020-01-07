@@ -88,8 +88,17 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
                             </a>
                         </div>
                         <div class="col-md-9">
-                            <h5><?= $news["judul"]; ?></h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+                            <a href="post.php?id=<?= $news["id"]; ?>">
+                                <h5>
+                                    <?= $news["judul"]; ?>
+                                </h5>
+                            </a>
+                            <div class=" text-justify">
+                                <?= substr($news['isi_berita'], 0, 200) . "...";
+
+                                ?>
+                            </div>
+
                             <a class="btn btn-sm btn-primary" href="post.php?id=<?= $news["id"]; ?>">Baca Selengkapnya...</a>
                             <hr>
                         </div>
