@@ -5,7 +5,10 @@ if (!isset($_SESSION["login"])) {
     exit;
 }
 require 'functions.php';
-$surah = mysqli_query($conn, "SELECT * FROM tb_surah");
+$berita = mysqli_query($conn, "SELECT * FROM tb_video");
+// while ($fetch = mysqli_fetch_array($berita)) {
+//     echo selengkapnya($fetch["isi_berita"]);
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +19,7 @@ $surah = mysqli_query($conn, "SELECT * FROM tb_surah");
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="..\assets\css\bootstrap.min.css">
 
-    <title>Daftar Surah Al-Qur'an</title>
+    <title>Daftar Video</title>
 </head>
 
 <body>
@@ -25,37 +28,56 @@ $surah = mysqli_query($conn, "SELECT * FROM tb_surah");
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-white">
                 <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Surah Al-Qur'an</li>
+                <li class="breadcrumb-item active" aria-current="page">Daftar Berita</li>
             </ol>
         </nav>
         <h2 style="margin: 25px 0 0 0;">
-            Surah Al-Qur'an
+            List Video
         </h2>
+        <br>
+        <h5><a href="add_berita.php">Tambah Berita</a></h5>
         <hr>
         <table class="table table-striped table-hover table-sm table-bordered" style="margin: 10px 0 0 0;">
             <thead>
                 <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Judul</th>
+                    <th scope="col" style="font-size: large;">No.</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Judul Berita</th>
+                    <th scope="col">Kategori</th>
+                    <th scope="col">Link</th>
+                    <th scope="col">Time</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <?php $i = 1; ?>
-                <?php foreach ($surah as $surat) : ?>
+                <?php foreach ($berita as $news) : ?>
                     <tr>
                         <td>
                             <?= $i; ?>
                         </td>
                         <td>
-                            <?= $surat["judul"]; ?>
+                            <?= $news["id"]; ?>
                         </td>
                         <td>
-                            <a href="ubah.php?id=<?= $surat["id"]; ?>">
-                                <button type="submitEdit" name="ubah" class="btn btn-sm btn-primary">Ubah</button>
+                            <?= $news["judul"]; ?>
+                        </td>
+                        <td>
+                            <?= $news["kategori"]; ?>
+                        </td>
+                        <td>
+                            <?= $news["link"]; ?>
+                        </td>
+                        <td>
+                            <?= $news["time"]; ?>
+                        </td>
+
+                        <td>
+                            <a href="editv.php?id=<?= $news["id"]; ?>">
+                                <button type="submit" name="ubah" class="btn btn-sm btn-primary">Ubah</button>
                             </a>
-                            <a href="deleteBacaan.php?id=<?= $surat["id"]; ?>">
-                                <button type="submitDel" name="hapus" class="btn btn-sm btn-danger" Onclick="return ConfirmDelete();"> Delete</button>
+                            <a href="deletev.php?id=<?= $news["id"]; ?>">
+                                <button type="submit" name="hapus" class="btn btn-sm btn-danger" Onclick="return ConfirmDelete();"> Delete</button>
                             </a>
                         </td>
 
@@ -74,9 +96,11 @@ $surah = mysqli_query($conn, "SELECT * FROM tb_surah");
                 return false;
         }
     </script>
-    <!-- Footer -->
-    <?php include('footer.php') ?>
-    <!-- End Footer -->
+
+    <div style="margin:230px 0 0 0;">
+        <?php include('footer.php') ?>
+    </div>
 </body>
+
 
 </html>

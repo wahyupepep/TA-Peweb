@@ -15,7 +15,7 @@ if (!isset($_SESSION["login"])) {
     <link rel="stylesheet" href="..\assets\css\bootstrap.min.css">
     <link rel="stylesheet" href="admin\assets\style.css">
     <script src="..\assets\js\fontawesome.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Dashboard Admin</title>
 </head>
 
 <body>
@@ -57,6 +57,20 @@ if (!isset($_SESSION["login"])) {
                         <i class="far fa-calendar-alt fa-5x"></i>
                         <br>
                         <label for="">Kelola Zawiyah</label>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="list_video.php" style="color: black;">
+                        <i class="fab fa-youtube fa-5x"></i>
+                        <br>
+                        <label for="">Kelola Video</label>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="add_video.php" style="color: black;">
+                        <i class="fas fa-file-video fa-5x"></i>
+                        <br>
+                        <label for="">Tambah Video</label>
                     </a>
                 </div>
                 <!-- <div class="col">

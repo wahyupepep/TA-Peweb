@@ -44,7 +44,7 @@ if (isset($_POST["submitBerita"])) {
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-white">
                 <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Tambah</li>
+                <li class="breadcrumb-item active" aria-current="page">Tambah Berita</li>
             </ol>
         </nav>
         <h2 style="margin: 25px 0 0 0;">

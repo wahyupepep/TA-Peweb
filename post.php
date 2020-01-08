@@ -73,6 +73,28 @@ $data   = mysqli_fetch_assoc($berita);
                         <?php endforeach; ?>
                     </ul>
                 </div>
+                <div class="card" style="width: 18rem;margin:15px 0 0 0;">
+                    <div class="card-header">
+                        Kategori
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a href="daerah.php">
+                                Daerah
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="nasional.php">
+                                Nasional
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="internasional.php">
+                                Internasional
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

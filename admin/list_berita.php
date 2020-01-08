@@ -19,7 +19,7 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="..\assets\css\bootstrap.min.css">
 
-    <title>List Berita</title>
+    <title>Daftar Berita</title>
 </head>
 
 <body>
@@ -28,7 +28,7 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-white">
                 <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">List</li>
+                <li class="breadcrumb-item active" aria-current="page">Daftar Berita</li>
             </ol>
         </nav>
         <h2 style="margin: 25px 0 0 0;">

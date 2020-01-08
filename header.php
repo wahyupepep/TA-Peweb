@@ -37,6 +37,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="kontak.php">Kontak</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="video.php">Video</a>
+                </li>
 
                 <!-- <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

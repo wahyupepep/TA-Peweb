@@ -32,12 +32,15 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="http://localhost/UAS-PEWEB/admin/image/5e146c48c572c.jpg" alt="First slide">
+                    <img class="d-block w-100" src="http://localhost/UAS-PEWEB/admin/image/5e15b0e8db527.jpg" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
                         <a href="http://localhost/UAS-PEWEB/post.php?id=34">
-                            <h5>Bacaan Sholawat Sebagai Hadiah Ulang Tahun Mawlana Syaikh Mustafa</h5>
+                            <h5>Iran Tembakkan Lusinan Rudal ke Pangkalan Militer Amerika di Iraq, Washington Siap-siap
+                            </h5>
                         </a>
-                        <p>Pada 25 Januari 2016 ,Bertepatan dengan Milad Hari kelahiran Guru Kami Tercinta Syaikh Mustafa Mas ud ,sebagai bentuk kecintaan para murid berinisiatif untuk memberikan kado kepada Beliau</p>
+                        <p>
+                            Iran menembakkan lebih dari selusin rudal ke pasukan AS dan pasukan koalisi di Iraq hari Selasa, yang disebutnya sebagai pembalasan nyata atas serangan pesawat tak berawak AS. hari Jumat sebelumnya
+                        </p>
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -142,6 +145,29 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
                                 break;
                             } ?>
                         <?php endforeach; ?>
+                    </ul>
+                </div>
+
+                <div class="card" style="width: 18rem;margin:15px 0 0 0;">
+                    <div class="card-header">
+                        Kategori
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a href="daerah.php">
+                                Daerah
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="nasional.php">
+                                Nasional
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="internasional.php">
+                                Internasional
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

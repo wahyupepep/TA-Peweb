@@ -29,7 +29,7 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita WHERE kategori = 'Interna
                 <hr size='100px' width='100%' align='right' style="margin: 30px 0 0 0;">
             </div>
             <div class="col">
-                <h1 class="text-center">Berita Nasional</h1>
+                <h1 class="text-center">Berita Internasional</h1>
             </div>
             <div class="col">
                 <hr size='100px' width='100%' align='right' style="margin: 30px 0 0 0;">

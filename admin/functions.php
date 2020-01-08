@@ -39,6 +39,21 @@ function create($data)
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
 }
+function video($data)
+{
+    global $conn;
+    $judulBerita = htmlspecialchars($data["judulBerita"]);
+    $kategoriBerita = htmlspecialchars(($data["kategoriBerita"]));
+    $video = htmlspecialchars($data["linkVideo"]);
+    $time = date("Y-m-d H:i:s");
+
+
+    //query input
+    $query = "INSERT INTO tb_video VALUES ('','$judulBerita','$kategoriBerita','$video','$time')";
+
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
 
 function edit($data)
 {
@@ -60,6 +75,24 @@ function edit($data)
        img = '$foto',
        kategori = '$kategoriBerita',
        isi_berita = '$isiBerita'
+       WHERE id = $id
+       ";
+
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+function editv($data)
+{
+    global $conn;
+    $id = $data["id"];
+    $judulBerita = htmlspecialchars($data["judulBerita"]);
+    $kategoriBerita = htmlspecialchars(($data["kategoriBerita"]));
+    $video = htmlspecialchars($data["linkVideo"]);
+    // query insert data
+    $query = "UPDATE tb_video SET
+       judul = '$judulBerita',
+       kategori = '$kategoriBerita',
+       link = '$video'
        WHERE id = $id
        ";
 
@@ -111,6 +144,13 @@ function delete($id)
 {
     global $conn;
     $delete = "DELETE FROM tb_berita WHERE id = $id";
+    mysqli_query($conn, $delete);
+    return mysqli_affected_rows($conn);
+}
+function deletev($id)
+{
+    global $conn;
+    $delete = "DELETE FROM tb_video WHERE id = $id";
     mysqli_query($conn, $delete);
     return mysqli_affected_rows($conn);
 }
