@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: index.php");
+    exit;
+}
 require 'functions.php';
 //get id
 $id = $_GET["id"];
@@ -7,12 +12,12 @@ $berita = query("SELECT * FROM tb_berita where id = $id")[0];
 if (isset($_POST["submitEdit"])) {
     if (edit($_POST) > 0) {
         echo "<script>
-                alert ('Barang Berhasil Diubahh!');
+                alert ('Berita Berhasil Diubahh!');
                 document.location.href = 'list_berita.php';
                 </script>";
     } else {
         echo "<script>
-            alert ('Barang Gagal Diubah!');
+            alert ('Berita Gagal Diubah!');
             document.location.href = 'ubah.php';
             </script>";
     }
@@ -27,6 +32,12 @@ if (isset($_POST["submitEdit"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Edit Berita</title>
+    <script src="https://cdn.tiny.cloud/1/slnbjgoluq6lrwwub8hkjhpz5kl6p6xsjkh3xvq2z5ryjmz0/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#isiBerita'
+        });
+    </script>
 </head>
 
 <body>
@@ -90,7 +101,7 @@ if (isset($_POST["submitEdit"])) {
                             <option selected>Choose...</option>
                             <option value="Nasional">Nasional</option>
                             <option value="Daerah">Daerah</option>
-                            <option value="internasional">Internasional</option>
+                            <option value="Internasional">Internasional</option>
                         </select>
 
                     </td>
@@ -104,7 +115,8 @@ if (isset($_POST["submitEdit"])) {
                     </td>
                     <td>
                         <div class="form-group">
-                            <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" name="isiBerita"><?= $berita["isi_berita"]; ?></textarea>
+                            <textarea id="isiBerita" name="isiBerita" rows="13"><?= $berita["isi_berita"]; ?></textarea>
+
                         </div>
                     </td>
                 </tr>

@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: index.php");
+    exit;
+}
 require 'functions.php';
 $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
 // while ($fetch = mysqli_fetch_array($berita)) {
@@ -68,7 +73,7 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
                         </td>
 
                         <td>
-                            <a href="ubah.php?id=<?= $news["id"]; ?>">
+                            <a href="edit.php?id=<?= $news["id"]; ?>">
                                 <button type="submit" name="ubah" class="btn btn-sm btn-primary">Ubah</button>
                             </a>
                             <a href="delete.php?id=<?= $news["id"]; ?>">
@@ -92,9 +97,9 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
         }
     </script>
 
-    <!-- Footer -->
-    <?php include('footer.php') ?>
-    <!-- End Footer -->
+    <div style="margin:230px 0 0 0;">
+        <?php include('footer.php') ?>
+    </div>
 </body>
 
 

@@ -29,11 +29,12 @@ $data   = mysqli_fetch_assoc($berita);
         <div class="row" style="margin: 10px 0 0 0;">
             <div class="col-md-8">
                 <div class="card mb-4">
-
                     <div class="card-header">
                         Posted on <?= $data['tanggal']; ?>
                     </div>
-                    <img class="card-img-top" src="admin/image/<?= $data["img"]; ?>" alt="Card image cap" />
+                    <center>
+                        <img class="card-img-top " src="admin/image/<?= $data["img"]; ?>" alt="Card image cap" style="margin: 30px; width:600px" />
+                    </center>
                     <div class="card-body">
                         <h2 class="card-title">
                             <?= $data['judul']; ?>
@@ -52,22 +53,25 @@ $data   = mysqli_fetch_assoc($berita);
 
                 </div>
             </div>
-            <div class=" col-md-4">
-                <div class="card my-0">
-                    <h5 class="card-header ">text</h5>
-                    <div class="list-group">
-                        <!-- <a href="#" class="list-group-item list-group-item-action active">
-                            Cras justo odio
-                        </a> -->
-                        <a href="#" class="list-group-item list-group-item-action">
-                            Dapibus ac facilisis in
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action">
-                            Dapibus ac facilisis in
-                        </a>
+            <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        New Post
                     </div>
-                    </span>
-                    <!-- </div> -->
+                    <ul class="list-group list-group-flush">
+                        <?php $i = 1; ?>
+                        <?php foreach ($berita as $news) : ?>
+                            <li class="list-group-item">
+                                <a href="post.php?id=<?= $news["id"]; ?>">
+                                    <?= $news["judul"]; ?>
+                                </a>
+                            </li>
+                            <?php $i++; ?>
+                            <?php if ($i == 6) {
+                                break;
+                            } ?>
+                        <?php endforeach; ?>
+                    </ul>
                 </div>
             </div>
         </div>

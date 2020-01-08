@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: index.php");
+    exit;
+}
 require 'functions.php';
 if (isset($_POST["submitBerita"])) {
 
@@ -84,7 +89,7 @@ if (isset($_POST["submitBerita"])) {
                             <option selected>Choose...</option>
                             <option value="Nasional">Nasional</option>
                             <option value="Daerah">Daerah</option>
-                            <option value="internasional">Internasional</option>
+                            <option value="Internasional">Internasional</option>
                         </select>
 
                     </td>
@@ -98,7 +103,7 @@ if (isset($_POST["submitBerita"])) {
                     </td>
                     <td>
                         <div class="form-group">
-                            <textarea id="isiBerita" name="isiBerita">Hello, World!</textarea>
+                            <textarea id="isiBerita" name="isiBerita" rows="13">Hello, World!</textarea>
                         </div>
                     </td>
                 </tr>
@@ -122,9 +127,9 @@ if (isset($_POST["submitBerita"])) {
         </table>
     </div>
     <br><br>
-    <!-- Footer -->
-    <?php include('footer.php') ?>
-    <!-- End Footer -->
 </body>
+<!-- Footer -->
+<?php include('footer.php') ?>
+<!-- End Footer -->
 
 </html>

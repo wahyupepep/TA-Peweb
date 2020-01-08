@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: index.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,8 +27,12 @@
         <nav aria-label="breadcrumb" style="margin: 0px 0 0 0 ;">
             <ol class="breadcrumb bg-white">
                 <li class="breadcrumb-item active" aria-current="page">Home</li>
+                <a href="logout.php">
+                    <button type="button" class="btn btn-sm btn-danger" style="margin: -25px 0 0 1000px;">Logout</button>
+                </a>
             </ol>
         </nav>
+
         <h1>
             Selamat Datang di Admin Panel <b>Kampung</b>Sholawat
         </h1>
@@ -48,7 +59,7 @@
                         <label for="">Kelola Zawiyah</label>
                     </a>
                 </div>
-                <div class="col">
+                <!-- <div class="col">
                     <a href="surah.php" style="color: black;">
                         <i class="fas fa-folder-plus fa-5x"></i>
                         <br>
@@ -61,12 +72,14 @@
                         <br>
                         <label for="">Upload Bacaan</label>
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
     <!-- Footer -->
-    <?php include('footer.php') ?>
+    <div style="margin:230px 0 0 0;">
+        <?php include('footer.php') ?>
+    </div>
     <!-- End Footer -->
 </body>
 

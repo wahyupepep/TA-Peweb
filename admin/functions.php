@@ -31,7 +31,7 @@ function create($data)
     if (!$img) {
         return false;
     }
-    // var_dump($isiBerita);
+    //var_dump($isiBerita);
 
     //query input
     $query = "INSERT INTO tb_berita VALUES ('','$img','$judulBerita','$kategoriBerita','$isiBerita','$video','$time')";
@@ -192,7 +192,4 @@ function tambahZawiyah($data)
 
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
-}
-function post($id)
-{
 }

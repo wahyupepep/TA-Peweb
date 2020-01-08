@@ -94,17 +94,19 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
                                 </h5>
                             </a>
                             <div class=" text-justify">
-                                <?= substr($news['isi_berita'], 0, 200) . "...";
+                                <p>
+                                    <?php
+                                    echo substr($news['isi_berita'], 0, 200);
+                                    ?>
+                                </p>
 
-                                ?>
                             </div>
-
                             <a class="btn btn-sm btn-primary" href="post.php?id=<?= $news["id"]; ?>">Baca Selengkapnya...</a>
                             <hr>
                         </div>
 
                         <?php $i++; ?>
-                        <?php if ($i == 5) {
+                        <?php if ($i == 6) {
                             break;
                         } ?>
                     <?php endforeach; ?>
@@ -113,10 +115,21 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
             <div class="col-4">
                 <div class="card" style="width: 18rem;">
                     <div class="card-header">
-                        Featured
+                        New Post
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
+                        <?php $i = 1; ?>
+                        <?php foreach ($berita as $news) : ?>
+                            <li class="list-group-item">
+                                <a href="post.php?id=<?= $news["id"]; ?>">
+                                    <?= $news["judul"]; ?>
+                                </a>
+                            </li>
+                            <?php $i++; ?>
+                            <?php if ($i == 6) {
+                                break;
+                            } ?>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>

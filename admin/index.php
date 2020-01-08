@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (isset($_SESSION["login"])) {
+    header("Location: dashboard.php");
+    exit;
+}
 require 'functions.php';
 
 if (isset($_POST["submitLogin"])) {
@@ -10,6 +15,9 @@ if (isset($_POST["submitLogin"])) {
     if (mysqli_num_rows($result) === 1) {
         //cek password
         $row = mysqli_fetch_assoc($result);
+        //cek session
+        $_SESSION["login"] = true;
+
         header('Location:http://localhost/UAS-PEWEB/admin/dashboard.php');
         exit();
     } else {
@@ -37,7 +45,7 @@ if (isset($_POST["submitLogin"])) {
         <div id="card-content">
             <div id="card-title">
                 <h2 style="margin: 25px 0 0 0;">
-                    L O G I N
+                    Administrator Login
                 </h2>
                 <hr>
                 <div class="underline-title"></div>

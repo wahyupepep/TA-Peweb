@@ -1,4 +1,10 @@
 <?php
+
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: index.php");
+    exit;
+}
 require 'functions.php';
 $zawiyah = mysqli_query($conn, "SELECT * FROM tb_zawiyah");
 // while ($fetch = mysqli_fetch_array($berita)) {

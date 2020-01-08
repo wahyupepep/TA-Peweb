@@ -1,6 +1,13 @@
+<!-- <style>
+    .navbar-custom {
+        color: #FFFFFF;
+        background-color: #CC3333;
+    }
+</style> -->
+
 <link rel="stylesheet" href="..\assets\css\bootstrap.min.css">
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
     <div class="container">
         <a class="navbar-brand" href="#"><b>Kampung</b>Sholawat</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

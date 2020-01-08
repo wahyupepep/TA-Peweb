@@ -1,4 +1,4 @@
-<script src="..\assets\css\bootstrap.min.css"></script>
+<link rel="stylesheet" href="..\assets\css\bootstrap.min.css">
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
@@ -20,9 +20,9 @@
                         Berita
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Nasional</a>
-                        <a class="dropdown-item" href="#">Daerah</a>
-                        <a class="dropdown-item" href="#">Internasional</a>
+                        <a class="dropdown-item" href="nasional.php">Nasional</a>
+                        <a class="dropdown-item" href="daerah.php">Daerah</a>
+                        <a class="dropdown-item" href="internasional.php">Internasional</a>
                         <!-- <a class="dropdown-item" href="#">Something else here</a> -->
                     </div>
                 </li>
@@ -32,10 +32,10 @@
                     <a class="nav-link" href="zawiyah.php">Zawiyah</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Download</a>
+                    <a class="nav-link" href="download">Download</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Kontak</a>
+                    <a class="nav-link" href="kontak.php">Kontak</a>
                 </li>
 
                 <!-- <li class="nav-item">
