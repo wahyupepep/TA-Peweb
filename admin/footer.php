@@ -35,6 +35,7 @@
         color: #fff;
         margin: 1em;
         padding: 1em;
+        bottom: 0;
         width: 100%;
         justify-content: center;
 

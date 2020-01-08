@@ -70,7 +70,10 @@ $zawiyah = mysqli_query($conn, "SELECT * FROM tb_zawiyah");
         </table>
     </div>
     <!-- Footer -->
-    <?php include('footer.php') ?>
+    <div style="position: absolute ; bottom:0; width:100%;">
+        <?php include('footer.php') ?>
+
+    </div>
     <!-- End Footer -->
 </body>
 

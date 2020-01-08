@@ -20,7 +20,7 @@ if (!isset($_SESSION["login"])) {
 
 <body>
     <!-- Navbar -->
-    <?php include('header.php') ?>
+    <?php include('header2.php') ?>
     <!-- End Navbar -->
 
     <div class="container">
@@ -36,7 +36,7 @@ if (!isset($_SESSION["login"])) {
         <h1>
             Selamat Datang di Admin Panel <b>Kampung</b>Sholawat
         </h1>
-        <div class="Menu text-center" style="padding: 10px 0 0 0;">
+        <div class="Menu text-center" style="padding: 50px 0 0 0;">
             <div class="row">
                 <div class="col">
                     <a href="add_berita.php" style="color: black;">

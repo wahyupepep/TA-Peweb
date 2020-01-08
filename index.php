@@ -32,24 +32,36 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="assets\img\sample.jpg" alt="First slide">
+                    <img class="d-block w-100" src="http://localhost/UAS-PEWEB/admin/image/5e146c48c572c.jpg" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Test</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, explicabo quaerat nemo voluptate fugiat magnam eligendi esse tempora id error praesentium accusamus inventore sed deserunt, dolore rem corrupti natus totam!</p>
+                        <a href="http://localhost/UAS-PEWEB/post.php?id=34">
+                            <h5>Bacaan Sholawat Sebagai Hadiah Ulang Tahun Mawlana Syaikh Mustafa</h5>
+                        </a>
+                        <p>Pada 25 Januari 2016 ,Bertepatan dengan Milad Hari kelahiran Guru Kami Tercinta Syaikh Mustafa Mas ud ,sebagai bentuk kecintaan para murid berinisiatif untuk memberikan kado kepada Beliau</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="assets\img\sample.jpg" alt="Second slide">
+                    <img class="d-block w-100" src="http://localhost/UAS-PEWEB/admin/image/5e14718e1f474.jpg    " alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Test</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, explicabo quaerat nemo voluptate fugiat magnam eligendi esse tempora id error praesentium accusamus inventore sed deserunt, dolore rem corrupti natus totam!</p>
+                        <a href="http://localhost/UAS-PEWEB/post.php?id=35">
+                            <h5>Mawlid Nabi Muhammad SAW,Merayakan Kembalinya Nur Muhammad Dalam Diri<h5>
+                        </a>
+                        <p>
+
+                            Cikampek,1 Mei 2016.(selalu) Ada sisi kemuliaan didalam diri kita, karena ada Nur Sayyidina Muhammad, kita mengikuti Maulid Nabi besar Muhammad SAW ini, hakikat sebenarnya kita sedang merayakan kem
+                        </p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="assets\img\sample.jpg" alt="Third slide">
+                    <img class="d-block w-100" src="http://localhost/UAS-PEWEB/admin/image/5e156aa7f307d.jpg" alt="Third slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Test</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, explicabo quaerat nemo voluptate fugiat magnam eligendi esse tempora id error praesentium accusamus inventore sed deserunt, dolore rem corrupti natus totam!</p>
+                        <a href="http://localhost/UAS-PEWEB/post.php?id=39">
+                            <h5>India: Fear grips Muslim-majority town of Rampur
+                                <h5>
+                        </a>
+                        <p>
+                            UTTAR PRADESH, India (AA) : Fear has gripped the Muslim-majority town of Rampur, 250 kilometers (150 miles) northwest of Indian capital New Delhi, as police have booked 141 people and are hunting
+                        </p>
                     </div>
                 </div>
             </div>
@@ -134,9 +146,10 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita");
                 </div>
             </div>
         </div>
-        <!-- Footer -->
-        <?php include('footer.php') ?>
-        <!-- End Footer -->
+    </div>
+    <!-- Footer -->
+    <?php include('footer.php') ?>
+    <!-- End Footer -->
 </body>
 
 </html>
