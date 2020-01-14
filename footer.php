@@ -10,7 +10,7 @@
     </style>
     <footer class="page-footer font-small footer-color ">
         <div class="footer-copyright text-center py-3">
-            copyright &#169; Daffa Hanifisyafiq (A11.2018.11387)
+            Copyright &#169; Daffa Hanifisyafiq (A11.2018.11387)
         </div>
     </footer>
 

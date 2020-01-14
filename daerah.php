@@ -15,7 +15,7 @@ $berita = mysqli_query($conn, "SELECT * FROM tb_berita WHERE kategori = 'Daerah'
     <script src="assets\js\bootstrap.min.js"></script>
     <script src="assets\js\bootstrap.js"></script>
 
-    <title>Home</title>
+    <title>Berita Daerah</title>
 </head>
 
 <body>
